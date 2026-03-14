@@ -4,128 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Whispers of the Web</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #111, #333);
-      color:white;
-      text-align: center;
-      padding: 2rem;
-    }
-    .container {
-      background: #222;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 400px;
-      margin: auto;
-      box-shadow: 0 0 10px #000;
-    }
-    .blurred {
-      filter: blur(1.5px);
-      transition: filter 1s;
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-    }
-    textarea, button {
-      padding: 10px;
-      font-size: 1rem;
-      width: 100%;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: none;
-    }
-    button {
-      background:green;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #005ce6;
-    }
-    .timeline {
-      text-align: left;
-      margin-top: 20px;
-    }
-    .entry {
-      background: #333;
-      padding: 10px;
-      border-radius: 6px;
-      margin-bottom: 10px;
-    }
-  </style>
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Whispers of the Web</h1>
+
     <div id="whisperBox">
       <p class="blurred" id="previousWhisper">Loading previous whisper...</p>
       <textarea id="newWhisper" placeholder="What did you hear? Write it here..."></textarea>
       <button onclick="submitWhisper()">Submit Whisper</button>
     </div>
+
     <div class="timeline" id="timeline" style="display:none">
       <h2>Whisper Timeline</h2>
       <div id="entries"></div>
     </div>
-
-    <script>
-      const starterWhispers = [
-  "The moonlight danced on the broken glass.",
-  "A shadow passed beneath the flickering streetlamp.",
-  "Footsteps echoed, but no one was there.",
-  "The wind whispered secrets through the trees.",
-  "A cat stared, unblinking, at the empty hallway.",
-  "The typewriter clicked... but no hands touched it.",
-  "Rain tapped Morse code on the window pane.",
-  "A mirror cracked without a sound."
-];
-
-let whispers = [
-  starterWhispers[Math.floor(Math.random() * starterWhispers.length)]
-];
-
-
-      function loadWhisper() {
-        const previous = document.getElementById("previousWhisper");
-        const last = whispers[whispers.length - 1];
-        const blurred = obscureText(last);
-        previous.textContent = blurred;
-      }
-
-      function obscureText(text) {
-        const words = text.split(" ");
-        return words.map(word => Math.random() < 0.4 ? "..." : word).join(" ");
-      }
-
-      function submitWhisper() {
-        const input = document.getElementById("newWhisper");
-        const value = input.value.trim();
-        if (!value) {
-          alert("Please write your version of the whisper.");
-          return;
-        }
-        whispers.push(value);
-        input.value = "";
-
-        if (whispers.length >= 6) {
-          showTimeline();
-        } else {
-          loadWhisper();
-        }
-      }
-
-      function showTimeline() {
-        document.getElementById("whisperBox").style.display = "none";
-        const timeline = document.getElementById("timeline");
-        const entries = document.getElementById("entries");
-        timeline.style.display = "block";
-
-        entries.innerHTML = whispers
-          .map((w, i) => `<div class='entry'><strong>Step ${i + 1}:</strong> ${w}</div>`) 
-          .join("");
-      }
-
-      loadWhisper();
-    </script>
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
