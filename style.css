@@ -1,0 +1,114 @@
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom, #111, #333);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+.container {
+  background: #222;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+textarea {
+  width: 95%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  margin-bottom: 12px;
+  resize: none;
+  background: #111;
+  color: white;
+}
+
+textarea:focus {
+  outline: none;
+  border: 2px solid #00ffcc;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 6px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #00cc66;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+#previousWhisper {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  transition: filter 0.5s ease;
+}
+
+.blurred {
+  filter: blur(1.5px);
+}
+
+
+#timeline {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.entry {
+  background: #333;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: all 0.5s ease;
+}
+
+
+#resultText {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  min-height: 30px;
+  transition: color 0.3s ease;
+}
+
+#resultText.blur { color: white; }
+#resultText.shuffle { color: purple; }
+#resultText.symbol { color: orange; }
+
+.controls {
+  margin: 15px 0;
+}
+
+.controls label {
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+input[type="range"] {
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+select {
+  padding: 6px;
+  margin-left: 10px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #111;
+  color: white;
+}
